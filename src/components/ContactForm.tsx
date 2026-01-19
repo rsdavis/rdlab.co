@@ -35,6 +35,10 @@ const styles = {
     borderRadius: "4px",
     cursor: "pointer",
     alignSelf: "flex-start" as const,
+    transition: "background 0.2s ease",
+  },
+  buttonHover: {
+    background: "#444",
   },
   buttonDisabled: {
     background: "#666",
@@ -55,6 +59,7 @@ const styles = {
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [isHovered, setIsHovered] = useState(false);
 
   async function handleSubmit(e: Event) {
     e.preventDefault();
@@ -110,7 +115,13 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        style={{ ...styles.button, ...(isSubmitting ? styles.buttonDisabled : {}) }}
+        style={{
+          ...styles.button,
+          ...(isHovered && !isSubmitting ? styles.buttonHover : {}),
+          ...(isSubmitting ? styles.buttonDisabled : {}),
+        }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
       >
         {isSubmitting ? "Sending..." : "Send Message"}
       </button>
