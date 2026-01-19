@@ -124,9 +124,8 @@ import ContactForm from "../components/ContactForm";
     <section class="contact-section">
       <h2>Let's Work Together</h2>
       <p class="description">
-        I'm available for data engineering contracts, specializing in Spark and
-        Databricks. Whether you're scaling pipelines, migrating to the cloud, or
-        need help wrangling messy data, let's chat.
+        Open to data engineering work. If you need help with Spark, Databricks,
+        or messy pipelines, reach out.
       </p>
       <ContactForm client:load />
     </section>
@@ -175,7 +174,7 @@ import ContactForm from "../components/ContactForm";
   }
 
   p {
-    font-size: 1.125rem;
+    font-size: 1rem;
     color: #666;
     margin: 0 0 1rem;
     line-height: 1.6;
@@ -275,12 +274,13 @@ import ContactForm from "../components/ContactForm";
   }
 
   .social-links a {
-    color: #666;
+    color: #222;
     text-decoration: none;
+    transition: color 0.2s ease;
   }
 
   .social-links a:hover {
-    color: #222;
+    color: #444;
   }
 
   .social-links svg {
